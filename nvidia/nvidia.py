@@ -6,15 +6,15 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-api_keys = ["META_LLMA3_KEY"]  # we can add more api keys in .env file and add it here
-llm_models = ["meta/llama3-70b-instruct"] # if more api keys are added then add more models here
+api_keys = ["META_LLMA3_KEY", "DEEPSEEK_R1_LLMA_KEY"]  # we can add more api keys in .env file and add it here
+llm_models = ["meta/llama3-70b-instruct", "deepseek-ai/deepseek-r1-distill-llama-8b"] # if more api keys are added then add more models here
 
 # Get API key from environment variables
-API_KEY = os.getenv(api_keys[0])
+API_KEY = os.getenv(api_keys[1])
 if not API_KEY:
     raise ValueError("NVIDIA_API_KEY not found in environment variables")
 
-def generate_code(prompt, model=llm_models[0]):
+def generate_code(prompt, model=llm_models[1]):
     """
     Generate code using NVIDIA AI Foundation Models API.
     
